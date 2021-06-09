@@ -1283,7 +1283,7 @@
     webpack "^4.0.0"
     yorkie "^2.0.0"
 
-"@vue/cli-plugin-router@^4.5.13":
+"@vue/cli-plugin-router@^4.5.13", "@vue/cli-plugin-router@~4.5.0":
   version "4.5.13"
   resolved "https://registry.yarnpkg.com/@vue/cli-plugin-router/-/cli-plugin-router-4.5.13.tgz#0b67c8898a2bf132941919a2a2e5f3aacbd9ffbe"
   integrity sha512-tgtMDjchB/M1z8BcfV4jSOY9fZSMDTPgF9lsJIiqBWMxvBIsk9uIZHxp62DibYME4CCKb/nNK61XHaikFp+83w==
@@ -1439,6 +1439,11 @@
     vue-template-es2015-compiler "^1.9.0"
   optionalDependencies:
     prettier "^1.18.2"
+
+"@vue/devtools-api@^6.0.0-beta.10":
+  version "6.0.0-beta.13"
+  resolved "https://registry.yarnpkg.com/@vue/devtools-api/-/devtools-api-6.0.0-beta.13.tgz#ff31e552ae3e99b5f2c0af0ca81f0889dbfb2155"
+  integrity sha512-oZ0n/N4UWpkMvbR1OrBtu+YhaVADo+bYX5lxo9tou7h10p0+v2K9yzzaZATVr0lqHb7iY1wALfO8yojwg0MTHw==
 
 "@vue/preload-webpack-plugin@^1.1.0":
   version "1.1.2"
@@ -8317,6 +8322,13 @@ vue-loader@^15.9.2:
     loader-utils "^1.1.0"
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
+
+vue-router@^4.0.0-0:
+  version "4.0.8"
+  resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-4.0.8.tgz#55d4290a3122444edbc91a3cd2492bb1d0cef494"
+  integrity sha512-42mWSQaH7CCBQDspQTHv63f34VEnZC20g9QNK4WJ/zW8SdIUeT6TQ2i/78fjF/pVBUPLBWrGhvB7uDnaz7O/pA==
+  dependencies:
+    "@vue/devtools-api" "^6.0.0-beta.10"
 
 vue-style-loader@^4.1.0, vue-style-loader@^4.1.2:
   version "4.1.3"
