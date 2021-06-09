@@ -1,0 +1,20 @@
+{
+  "name": "babble-backend",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "node": "^16.1.0",
+    "peer": "^0.6.1"
+  }
+}
