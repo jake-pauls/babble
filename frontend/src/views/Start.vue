@@ -1,49 +1,78 @@
 <template>
     <h1>This is the Start view</h1>
     <div>
-        <input type="text" v-model="submittedPeerId" placeholder="Enter a peer id" />
+        <input v-model="submittedPeerId" placeholder="Enter a peer id" />
         <button v-on:click="submitPeerId">Submit</button>
     </div>
     <div>
-        <video width="300" height="300" autoplay="autoplay" muted="true"></video>
-        <span>You</span>
+        <Video :stream="localVideo" />
+        <span>{{ myPeer.id }}</span>
     </div>
     <div>
-        <video width="300" height="300" autoplay="autoplay"></video>
-        <span>Them</span>
+        <Video :stream="peerVideo" />
+        <span>{{ outgoingPeerId }}</span>
     </div>
 </template>
 
 <script>
-import { generatePeerId, connectToPeer } from "../utils/peerUtils.js";
+import Video from "@/components/Video.vue";
+import { generatePeer, requestAudioVideo } from "../utils/peerUtils.js";
 
 export default {
   name: 'Start',
   data() {
     return {
-      myPeerId: "",
+      myPeer: {},
       submittedPeerId: "",
+      outgoingPeerId: "",
+      localVideo: {},
+      peerVideo: {},
     };
   },
   mounted() {
-    // On mount create a peer ID
-    this.myPeerId = generatePeerId();
-    console.log(`ID: ${this.myPeerId}`);
-    this.myPeerId.on("connection", (conn) => {
-        console.log("Incoming peer connection!");
-        conn.on("data", (data) => {
-            console.log(`received: ${data}`);
-        });
-        conn.on("open", () => {
-            conn.send("I called you!");
+    // Request audio and video from local client
+    requestAudioVideo({
+      success: (stream) => {
+        this.localVideo = stream;
+      },
+      error: (err) => {
+        console.log("Error accessing local camera and video.");
+        console.log(err);
+      },
+    });
+
+    // Generate a local peer id
+    this.myPeer = generatePeer();
+
+    this.myPeer.on("call", (call) => {
+        // Answer any calls with local video
+        call.answer(this.localVideo)
+
+        // Store outgoing peer id
+        this.outgoingPeerId = call.peer;
+
+        // Retrieve desired peer's stream
+        call.on("stream", (stream) => {
+            this.peerVideo = stream;
         });
     });
   },
   methods: {
     submitPeerId() {
-      console.log(`Submitting peer id: ${this.submittedPeerId}`);
-      connectToPeer(this.myPeerId, this.submittedPeerId)
+      // Outgoing peer id is who we make the call too
+      this.outgoingPeerId = this.submittedPeerId;
+
+      // Call desired peer
+      let call = this.myPeer.call(this.submittedPeerId, this.localVideo);
+
+      // Retrieve desired peer's stream
+      call.on("stream", (stream) => {
+        this.peerVideo = stream;
+      });
     }
+  },
+  components: {
+    Video
   }
 }
 </script>
