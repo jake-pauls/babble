@@ -1,5 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
+
 import Home from '@/views/Home'
+import Room from '@/views/Room'
+import Start from '@/views/Start'
+
+import CreateRoomForm from '@/components/CreateRoomForm'
+import JoinRoomForm from '@/components/JoinRoomForm'
 
 const routes = [
   {
@@ -8,17 +14,24 @@ const routes = [
     component: Home
   },
   {
-    path: '/rooms',
-    name: 'Rooms',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/Rooms.vue')
+    path: '/start',
+    name: 'Start',
+    children: [
+      {
+        path: 'create',
+        component: CreateRoomForm
+      },
+      {
+        path: 'join',
+        component: JoinRoomForm
+      }
+    ],
+    component: Start
   },
   {
     path: '/room/:roomId',
     name: 'Room',
-    component: () => import('@/views/Room')
+    component: Room
   },
   {
     path: '/:pathMatch(.*)*',

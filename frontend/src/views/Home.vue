@@ -16,7 +16,7 @@
           focus:outline-none
         "
         type="button"
-        @click="joinQueue"
+        @click="$router.push('/start')"
       >
         Start
       </button>
@@ -30,18 +30,6 @@
     name: 'Home',
     components: {
       Logo
-    },
-    data() {
-      return {
-        loading: true
-      }
-    },
-    methods: {
-      joinQueue() {
-        //Handle joining the queue to
-
-        this.$router.push('/rooms')
-      }
     }
   }
 </script>
