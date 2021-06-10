@@ -27,8 +27,8 @@ Live demo available here: https://babble-lilac.vercel.app/
 ![image of babble rooms page]()
 
 ## Technologies
-* Vue.js with Tailwind CSS
-* [Zoom SDK](https://marketplace.zoom.us/docs/sdk/native-sdks/introduction)
+* [Vue.js](https://vuejs.org/) with [Tailwind CSS](https://tailwindcss.com/)
+* [PeerJS](https://peerjs.com/)
 
 ## Usage
 * Enter the [website](https://babble-lilac.vercel.app/).
