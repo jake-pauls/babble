@@ -1,16 +1,18 @@
 <template>
-    <h1>This is the Start view</h1>
     <div>
-        <input v-model="submittedPeerId" placeholder="Enter a peer id" />
-        <button v-on:click="submitPeerId">Submit</button>
-    </div>
-    <div>
-        <Video :stream="localVideo" />
-        <span>{{ myPeer.id }}</span>
-    </div>
-    <div>
-        <Video :stream="peerVideo" />
-        <span>{{ outgoingPeerId }}</span>
+      <h1>This is the Start view</h1>
+      <div>
+          <input v-model="submittedPeerId" placeholder="Enter a peer id" />
+          <button v-on:click="submitPeerId">Submit</button>
+      </div>
+      <div>
+          <Video :stream="localVideo" />
+          <span>{{ myPeer.id }}</span>
+      </div>
+      <div>
+          <Video :stream="peerVideo" />
+          <span>{{ outgoingPeerId }}</span>
+      </div>
     </div>
 </template>
 
