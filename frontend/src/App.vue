@@ -3,6 +3,7 @@
     <div id="nav">
       <router-link to="/">Babble</router-link> |
       <router-link to="/start">Get Started</router-link>
+      <router-link to="/editor">Editor</router-link>
     </div>
     <router-view/>
   </div>
