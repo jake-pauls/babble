@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home.vue'
+import Home from '@/views/Home'
 
 const routes = [
   {
@@ -14,6 +14,17 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/Rooms.vue')
+  },
+  {
+    path: '/room/:roomId',
+    name: 'Room',
+    component: () => import('@/views/Room')
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    redirect: {
+      name: 'Home'
+    }
   }
 ]
 

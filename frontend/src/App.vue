@@ -1,30 +1,18 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Babble</router-link> |
-    <router-link to="/rooms">Rooms</router-link>
+  <div class="w-screen h-screen" id="app">
+    <router-view />
   </div>
-  <router-view/>
 </template>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #0A0A0A;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #0A0A0A;
-}
-
-#nav a.router-link-exact-active {
-  color: #DB25A8;
-}
+  #app {
+    font-family: Roboto, Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #0a0a0a;
+    background-image: radial-gradient(#a7a7a73b 7%, #ffffff00 0%), linear-gradient(225deg, #8a24f0 0%, #002863 100%);
+    background-repeat: space;
+    background-size: 40px 40px, cover;
+  }
 </style>
