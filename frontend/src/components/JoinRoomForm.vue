@@ -1,7 +1,7 @@
 <template>
-  <div class="container w-3/12 mx-auto p-8 rounded-xl bg-black bg-opacity-60">
+  <form class="container w-3/12 mx-auto p-8 rounded-xl bg-black bg-opacity-60">
     <h2 class="text-white font-bold text-left text-3xl mb-4">Meeting Code</h2>
-    <input class="w-full p-3 rounded-md focus:outline-none" v-model="meetingCode" placeholder="Meeting Code" />
+    <input class="w-full p-3 rounded-md focus:outline-none" v-model="meetingId" placeholder="Meeting Code" required />
     <button
       class="
         mt-14
@@ -14,12 +14,12 @@
         hover:bg-highlight-dark
         focus:outline-none
       "
-      type="button"
+      type="submit"
       @click="joinRoom"
     >
       Join
     </button>
-  </div>
+  </form>
 </template>
 
 <script>
@@ -27,12 +27,14 @@
     name: 'JoinRoomForm',
     data() {
       return {
-        meetingCode: ''
+        meetingId: ''
       }
     },
     methods: {
       joinRoom() {
-        //Join room
+        if (this.meetingId) {
+          this.$router.push(`/room/${this.meetingId}`)
+        }
       }
     }
   }

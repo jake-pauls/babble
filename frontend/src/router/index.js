@@ -4,7 +4,6 @@ import Home from '@/views/Home'
 import Room from '@/views/Room'
 import Start from '@/views/Start'
 
-import CreateRoomForm from '@/components/CreateRoomForm'
 import JoinRoomForm from '@/components/JoinRoomForm'
 
 const routes = [
@@ -18,10 +17,6 @@ const routes = [
     name: 'Start',
     children: [
       {
-        path: 'create',
-        component: CreateRoomForm
-      },
-      {
         path: 'join',
         component: JoinRoomForm
       }
@@ -29,7 +24,7 @@ const routes = [
     component: Start
   },
   {
-    path: '/room/:roomId',
+    path: '/room/:roomId?',
     name: 'Room',
     component: Room
   },
