@@ -1,9 +1,11 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Babble</router-link> |
-    <router-link to="/rooms">Rooms</router-link>
+  <div>
+    <div id="nav">
+      <router-link to="/">Babble</router-link> |
+      <router-link to="/start">Get Started</router-link>
+    </div>
+    <router-view/>
   </div>
-  <router-view/>
 </template>
 
 <style>
