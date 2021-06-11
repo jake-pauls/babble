@@ -24,7 +24,7 @@ const routes = [
     component: Start
   },
   {
-    path: '/room/:roomId?',
+    path: '/room/:roomId?/:firepadId?',
     name: 'Room',
     component: Room
   },

@@ -5,29 +5,28 @@
 </template>
 
 <script>
-  import brace from "brace";
-  // firepad requires ace globally
-  global.ace = brace;
-  global.ace.require = global.ace.acequire;
-  import Firepad from "firepad";
-  import { connectToFirebase, getFirepadReference } from "../utils/firebaseUtils.js";
+  import brace from 'brace'
+  global.ace = brace
+  global.ace.require = global.ace.acequire
+  import Firepad from 'firepad'
+  import { connectToFirebase, getFirepadReference } from '../utils/firebaseUtils.js'
 
   export default {
     name: 'Start',
     async mounted() {
-        connectToFirebase();
-        let firepadReference = getFirepadReference();
+      connectToFirebase()
+      let firepadReference = getFirepadReference()
 
-        let editor = global.ace.edit("firepad-container");
+      let editor = global.ace.edit('firepad-container')
 
-        let session = editor.getSession();
-        session.setUseWrapMode(true);
-        session.setUseWorker(true);
-        session.setMode("ace/mode/javascript");
+      let session = editor.getSession()
+      session.setUseWrapMode(true)
+      session.setUseWorker(true)
+      session.setMode('ace/mode/javascript')
 
-        Firepad.fromACE(firepadReference, editor, {
-            defaultText: "// Welcome to Babble!"
-        });
+      Firepad.fromACE(firepadReference, editor, {
+        defaultText: '// Welcome to Babble!'
+      })
     }
   }
 </script>
