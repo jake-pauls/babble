@@ -9,13 +9,7 @@ const main = async () => {
     const httpServer = createServer(app);
 
     app.enable('trust proxy');
-    app.use(function(req, res, next) {
-      res.header("Access-Control-Allow-Origin", '*');
-      res.header("Access-Control-Allow-Credentials", true);
-      res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-      res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json');
-      next();
-    });
+    app.use(cors());
     app.use(express.json());
 
     const PORT = process.env.PORT || 4040;
@@ -38,7 +32,10 @@ const main = async () => {
     app.use("/", peerServer);
 
     const io = new Server(httpServer, {
-      serveClient: false
+      serveClient: false,
+      cors: {
+        origin: "https://www.letsbabble.tech"
+      }
     });;
 
     const unMatched = []
