@@ -20,10 +20,10 @@ jobs:
 
       # Install Deps
       - name: Install Dependencies
-      - run: cd frontend &&
+        run: cd frontend &&
           npm install
 
       # Run Tests
       - name: Run Jest Tests
-      - run: cd frontend &&
+        run: cd frontend &&
           npm run test:unit
