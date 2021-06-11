@@ -34,9 +34,10 @@
           <i class="flex-auto self-center text-2xl text-red-500 transform rotate-135 ri-phone-fill" />
         </div>
       </button>
-  </div>
-  <div class="p-4">
-    <Editor class="object-contain" />
+    </div>
+    <div class="p-4">
+      <Editor class="object-contain" />
+    </div>
   </div>
 </template>
 
