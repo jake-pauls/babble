@@ -33,10 +33,40 @@ const main = async () => {
 
     const io = new Server(httpServer, {
       serveClient: false
-    });
+    });;
+
+    const unMatched = []
+
+    const removeSocket = socketId => {
+      const index = unMatched.findIndex(socket => socket.id === socketId);
+
+      if (index > -1) {
+        unMatched.splice(index, 1);
+      }
+    }
 
     io.on("connection", socket => {
-      console.log(socket.id);
+      unMatched.push(socket);
+
+      socket.on("setPeerId", peerId => {
+        socket.peerId = peerId
+      });
+
+      socket.on("getMatch", () => {
+        const match = unMatched.shift();
+
+        if (match.id === socket.id || !match.peerId) {
+          unMatched.push(match);
+        } else {
+          removeSocket(socket.id);
+
+          socket.emit("foundMatch", match.peerId);
+        }
+      })
+
+      socket.on("disconnect", () => {
+        removeSocket(socket.id)
+      })
     })
 };
 

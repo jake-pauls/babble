@@ -52,13 +52,9 @@
           this.localVideo = stream
 
           if (this.$route.params.roomId) {
-            this.outgoingPeerId = this.$route.params.roomId
-
-            const call = this.myPeer.call(this.outgoingPeerId, stream)
-
-            call.on('stream', stream => {
-              this.peerVideo = stream
-            })
+            this.callPeer(this.$route.params.roomId, stream)
+          } else if (this.$route.meta.match) {
+            socket.emit('getMatch')
           }
         },
         error: err => {
@@ -68,6 +64,14 @@
 
       this.myPeer = generatePeer()
 
+      this.myPeer.on('open', id => {
+        socket.emit('setPeerId', id)
+      })
+
+      socket.on('foundMatch', peerId => {
+        this.callPeer(peerId, this.localVideo)
+      })
+
       this.myPeer.on('call', call => {
         call.answer(this.localVideo)
 
@@ -76,10 +80,6 @@
         call.on('stream', stream => {
           this.peerVideo = stream
         })
-      })
-
-      socket.on('connect', () => {
-        console.log(socket.id)
       })
     },
     methods: {
@@ -96,6 +96,15 @@
         setTimeout(() => {
           this.copied = false
         }, 300)
+      },
+      callPeer(peerId, stream) {
+        this.outgoingPeerId = peerId
+
+        const call = this.myPeer.call(this.outgoingPeerId, stream)
+
+        call.on('stream', stream => {
+          this.peerVideo = stream
+        })
       }
     }
   }

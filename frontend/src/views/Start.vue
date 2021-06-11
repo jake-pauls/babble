@@ -4,6 +4,7 @@
     <div class="container m-auto">
       <template v-if="$route.path === '/start'">
         <HeroButton class="mx-12 my-5" label="Create" icon="ri-add-fill" @click="$router.push('/room')" />
+        <HeroButton class="mx-12 my-5" label="Match" icon="ri-global-line" @click="$router.push('/match')" />
         <HeroButton class="mx-12 my-5" label="Join" icon="ri-login-box-line" @click="$router.push('/start/join')" />
       </template>
       <router-view />
