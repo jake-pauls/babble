@@ -1,6 +1,6 @@
 # Babble
-![image of babble landing page]() <br />
-[Babble](https://www.letsbabble.tech/) is a video chat web app with Zoom integration and synchronous text workspace support.
+![image of babble landing page](images/Landing.png) <br />
+[Babble](https://www.letsbabble.tech/) enables  and synchronous text workspace support.
 
 ## Table of Contents 🗺️
 * [Description](#description)
@@ -20,10 +20,16 @@ Live demo available here: https://www.letsbabble.tech/
 ## Site 🖥️
 
 ### Landing Page
-![image of babble landing page]()
+![image of babble landing page](images/Landing.png)
 
-### Rooms
-![image of babble rooms page]()
+### Selection
+![image of babble selections page](images/Selection.png)
+
+### Join
+![image of babble join meeting page](images/Join.png)
+
+### Video
+![image of babble video meeting page](images/Video.png)
 
 ## Technologies ⚙️
 * [Vue.js](https://vuejs.org/) with [Tailwind CSS](https://tailwindcss.com/)
