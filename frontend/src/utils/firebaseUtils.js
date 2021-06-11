@@ -22,9 +22,5 @@ export const getFirepadReference = () => {
     window.location = window.location + '#' + ref.key
   }
 
-  if (typeof console !== 'undefined') {
-    console.log('Firebase data: ', ref.toString())
-  }
-
   return ref
 }
