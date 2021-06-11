@@ -1,6 +1,6 @@
 # Babble
 ![image of babble landing page](images/Landing.png) <br />
-[Babble](https://www.letsbabble.tech/) enables  and synchronous text workspace support.
+[Babble](https://www.letsbabble.tech/) is a web application that enables pair programming for everyone by providing live video chat and built-in synchronous text workspace support.
 
 ## Table of Contents 🗺️
 * [Description](#description)
@@ -12,7 +12,7 @@
 * [License](#license)
 
 ## Description ✏️
-[Babble](https://www.letsbabble.tech/) provides live video chat and text field services. It enables people from around the world to work together. Users can create rooms with passwords, invite people to their rooms, live video chat and type in a shared text field.
+[Babble](https://www.letsbabble.tech/) is a web application that provides live video chat and text field services. It enables people from around the world to work together. Users can create rooms, invite people, live video chat and type in a shared text field. In the future, you will be able to match with a random Babble user, even if they are on the other side of the world. Connect with programmers from all around the world!
 
 ## Demo 💾
 Live demo available here: https://www.letsbabble.tech/
