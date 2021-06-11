@@ -1,5 +1,5 @@
 <template>
-  <div class="h-full flex justify-center items-center bg-black">
+  <div class="h-full flex bg-black relative">
     <div class="p-4 fluid relative">
       <Video @loadeddata="loadeddata" class="object-contain" :stream="peerVideo" />
       <div
@@ -28,6 +28,13 @@
     <div class="p-4 fluid">
       <Video class="object-contain" :stream="localVideo" muted />
     </div>
+    <div class="absolute rounded-full w-1/12 h-12 left-1/2 transform -translate-x-1/2 bottom-5 bg-black-dark shadow-xl">
+      <button class="h-full focus:outline-none" @click="endCall">
+        <div class="flex w-9 h-9 mx-auto rounded-full hover:bg-gray-900">
+          <i class="flex-auto self-center text-2xl text-red-500 transform rotate-135 ri-phone-fill" />
+        </div>
+      </button>
+    </div>
     <div class="p-4">
       <Editor class="object-contain" />
     </div>
@@ -37,7 +44,8 @@
 <script>
   import Video from '@/components/Video'
   import Editor from '@/components/Editor'
-  import { generatePeer, requestAudioVideo } from '../utils/peerUtils.js'
+  import { generatePeer, requestAudioVideo } from '@/utils/peerUtils.js'
+  import { socket } from '@/utils/socketUtils'
 
   export default {
     name: 'Room',
@@ -64,13 +72,9 @@
           this.localVideo = stream
 
           if (this.$route.params.roomId) {
-            this.outgoingPeerId = this.$route.params.roomId
-
-            const call = this.myPeer.call(this.outgoingPeerId, stream)
-
-            call.on('stream', stream => {
-              this.peerVideo = stream
-            })
+            this.callPeer(this.$route.params.roomId, stream)
+          } else if (this.$route.meta.match) {
+            socket.emit('getMatch')
           }
         },
         error: err => {
@@ -79,6 +83,14 @@
       })
 
       this.myPeer = generatePeer()
+
+      this.myPeer.on('open', id => {
+        socket.emit('setPeerId', id)
+      })
+
+      socket.on('foundMatch', peerId => {
+        this.callPeer(peerId, this.localVideo)
+      })
 
       this.myPeer.on('call', call => {
         call.answer(this.localVideo)
@@ -104,6 +116,20 @@
         setTimeout(() => {
           this.copied = false
         }, 300)
+      },
+      callPeer(peerId, stream) {
+        this.outgoingPeerId = peerId
+
+        const call = this.myPeer.call(this.outgoingPeerId, stream)
+
+        call.on('stream', stream => {
+          this.peerVideo = stream
+        })
+      },
+      endCall() {
+        this.myPeer.destroy()
+
+        this.$router.push('/')
       }
     }
   }

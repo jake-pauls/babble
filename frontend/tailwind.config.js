@@ -15,10 +15,14 @@ module.exports = {
       black: {
         light: '#2A2A34',
         DEFAULT: '#212121',
-        dark: '#000000'
+        dark: '#0e0e0e'
       },
       white: '#fff',
-      gray: colors.trueGray
+      gray: colors.trueGray,
+      red: colors.red
+    },
+    rotate: {
+      135: '135deg'
     },
     extend: {}
   },

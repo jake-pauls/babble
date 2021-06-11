@@ -29,6 +29,13 @@ const routes = [
     component: Room
   },
   {
+    path: '/match',
+    component: Room,
+    meta: {
+      match: true
+    }
+  },
+  {
     path: '/:pathMatch(.*)*',
     redirect: {
       name: 'Home'
