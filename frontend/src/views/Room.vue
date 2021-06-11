@@ -28,7 +28,8 @@
 
 <script>
   import Video from '@/components/Video'
-  import { generatePeer, requestAudioVideo } from '../utils/peerUtils.js'
+  import { generatePeer, requestAudioVideo } from '@/utils/peerUtils'
+  import { socket } from '@/utils/socketUtils'
 
   export default {
     name: 'Room',
@@ -75,6 +76,10 @@
         call.on('stream', stream => {
           this.peerVideo = stream
         })
+      })
+
+      socket.on('connect', () => {
+        console.log(socket.id)
       })
     },
     methods: {
