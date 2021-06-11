@@ -9,7 +9,6 @@
 ![license](https://img.shields.io/github/license/jake-pauls/babble?color=light-green)
 
 ![Vercel](https://therealsujitk-vercel-badge.vercel.app/?app=babble-lilac)
-![Heroku](https://heroku-badge.herokuapp.com/?app=babble-backend)
 
 [Babble](https://www.letsbabble.tech/) is a web application that enables pair programming for everyone by providing live video chat and built-in synchronous text workspace support.
 
