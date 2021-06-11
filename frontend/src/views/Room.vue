@@ -1,5 +1,5 @@
 <template>
-  <div class="h-full flex bg-black relative">
+  <div class="h-full flex bg-black justify-center items-center">
     <div class="p-4 fluid relative">
       <Video @loadeddata="loadeddata" class="object-contain" :stream="peerVideo" />
       <div
@@ -35,7 +35,7 @@
         </div>
       </button>
     </div>
-    <div class="p-4">
+    <div class="p-4 flex">
       <Editor class="object-contain" />
     </div>
   </div>
