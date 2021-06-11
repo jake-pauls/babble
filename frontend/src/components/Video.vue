@@ -10,9 +10,12 @@
         type: Object
       }
     },
+    mounted() {
+      this.$refs.video.addEventListener('loadeddata', () => {
+        this.$emit('loadeddata')
+      })
+    },
     updated() {
-      console.log(JSON.stringify(this.stream))
-
       this.$refs.video.srcObject = this.stream
     }
   }

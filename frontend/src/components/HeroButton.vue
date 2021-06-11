@@ -3,7 +3,7 @@
     class="
       w-1/5
       min-w-min
-      bg-black bg-opacity-60
+      bg-black-light bg-opacity-60
       rounded-2xl
       p-4
       focus:outline-none
