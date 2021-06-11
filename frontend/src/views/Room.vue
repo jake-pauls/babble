@@ -1,5 +1,5 @@
 <template>
-  <div class="h-full flex bg-black">
+  <div class="h-full flex bg-black relative">
     <div class="p-4 fluid relative">
       <Video @loadeddata="loadeddata" class="object-contain" :stream="peerVideo" />
       <div
@@ -22,6 +22,13 @@
     </div>
     <div class="p-4 fluid">
       <Video class="object-contain" :stream="localVideo" />
+    </div>
+    <div class="absolute rounded-full w-1/12 h-12 left-1/2 transform -translate-x-1/2 bottom-5 bg-black-dark shadow-xl">
+      <button class="h-full focus:outline-none" @click="endCall">
+        <div class="flex w-9 h-9 mx-auto rounded-full hover:bg-gray-900">
+          <i class="flex-auto self-center text-2xl text-red-500 transform rotate-135 ri-phone-fill" />
+        </div>
+      </button>
     </div>
   </div>
 </template>
@@ -105,6 +112,11 @@
         call.on('stream', stream => {
           this.peerVideo = stream
         })
+      },
+      endCall() {
+        this.myPeer.destroy()
+
+        this.$router.push('/')
       }
     }
   }
