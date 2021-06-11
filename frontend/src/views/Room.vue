@@ -8,7 +8,12 @@
       >
         <h2 class="align-middle text-black text-xl">Share this code to start!</h2>
         <div class="flex mt-6 rounded-md idInput">
-          <input ref="copyField" class="w-full p-3 focus:outline-none" :value="myPeer.id" readonly />
+          <input
+            ref="copyField"
+            class="w-full p-3 focus:outline-none"
+            :value="myPeer.id + '/' + outgoingFirepadId"
+            readonly
+          />
           <button class="mr-2 focus:outline-none" @click="copyID">
             <div class="flex w-9 h-9 mx-auto rounded-full hover:bg-gray-300">
               <i
@@ -29,19 +34,23 @@
           <i class="flex-auto self-center text-2xl text-red-500 transform rotate-135 ri-phone-fill" />
         </div>
       </button>
-    </div>
+  </div>
+  <div class="p-4">
+    <Editor class="object-contain" />
   </div>
 </template>
 
 <script>
   import Video from '@/components/Video'
-  import { generatePeer, requestAudioVideo } from '@/utils/peerUtils'
+  import Editor from '@/components/Editor'
+  import { generatePeer, requestAudioVideo } from '@/utils/peerUtils.js'
   import { socket } from '@/utils/socketUtils'
 
   export default {
     name: 'Room',
     components: {
-      Video
+      Video,
+      Editor
     },
     data() {
       return {
@@ -49,11 +58,14 @@
         localVideo: {},
         peerVideo: {},
         outgoingPeerId: '',
+        outgoingFirepadId: '',
         peerVideoLoaded: false,
         copied: false
       }
     },
     async mounted() {
+      this.outgoingFirepadId = window.location.hash
+
       requestAudioVideo({
         success: stream => {
           this.localVideo = stream

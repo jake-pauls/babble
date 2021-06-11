@@ -1,0 +1,29 @@
+name: Vue Tests (Jest)
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  run-unit-tests:
+    name: Execute Unit Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js (v14)
+        uses: actions/setup-node@v1
+        with:
+          node-version: "14"
+
+      # Install Deps
+      - name: Install Dependencies
+        run: cd frontend &&
+          npm install
+
+      # Run Tests
+      - name: Run Jest Tests
+        run: cd frontend &&
+          npm run test:unit

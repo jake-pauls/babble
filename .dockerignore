@@ -1,0 +1,20 @@
+# Git
+.git
+.github
+.gitignore
+
+# Frontend code
+frontend/
+
+# Docker
+*Dockerfile*
+*docker-compose*
+
+# Node
+node_modules
+npm-debug.log
+
+# Misc.
+.env
+README.md
+LICENSE
