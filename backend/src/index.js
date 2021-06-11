@@ -6,14 +6,14 @@ import { Server } from "socket.io"
 
 const main = async () => {
     const app = express();
-    const httpServer = createServer(app);
+    //const httpServer = createServer(app);
 
     app.enable('trust proxy');
     app.use(cors());
     app.use(express.json());
 
     const PORT = process.env.PORT || 4040;
-    const server = httpServer.listen(PORT, () => {
+    const server = app.listen(PORT, () => {
         console.log(`Server listening on port ${PORT}`);
     });
 
