@@ -1,5 +1,5 @@
 <template>
-  <div class="h-full flex bg-black">
+  <div class="h-full flex justify-center items-center bg-black">
     <div class="p-4 fluid relative">
       <Video @loadeddata="loadeddata" class="object-contain" :stream="peerVideo" />
       <div
@@ -23,17 +23,22 @@
     <div class="p-4 fluid">
       <Video class="object-contain" :stream="localVideo" />
     </div>
+    <div class="p-4" >
+      <Editor class="object-contain" />
+    </div>
   </div>
 </template>
 
 <script>
   import Video from '@/components/Video'
+  import Editor from '@/components/Editor'
   import { generatePeer, requestAudioVideo } from '../utils/peerUtils.js'
 
   export default {
     name: 'Room',
     components: {
-      Video
+      Video,
+      Editor,
     },
     data() {
       return {

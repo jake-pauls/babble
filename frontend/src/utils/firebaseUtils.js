@@ -8,8 +8,6 @@ export const connectToFirebase = () => {
         appId: process.env.VUE_APP_FB_APP_ID,   
     };
 
-    console.log("test");
-    console.log(firebaseConfig.apiKey);
     // Ensure firebase is only instantiated once on the client
     if (firebase.apps.length === 0)
         firebase.initializeApp(firebaseConfig);
