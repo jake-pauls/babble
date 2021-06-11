@@ -11,7 +11,7 @@
           <input
             ref="copyField"
             class="w-full p-3 focus:outline-none"
-            :value="myPeer.id + '/' + outgoingFirepadId"
+            :value="myPeer.id ? myPeer.id + '/' + outgoingFirepadId : 'Generating...'"
             readonly
           />
           <button class="mr-2 focus:outline-none" @click="copyID">
@@ -26,7 +26,7 @@
       </div>
     </div>
     <div class="p-4 fluid">
-      <Video class="object-contain" :stream="localVideo" />
+      <Video class="object-contain" :stream="localVideo" muted />
     </div>
     <div class="absolute rounded-full w-1/12 h-12 left-1/2 transform -translate-x-1/2 bottom-5 bg-black-dark shadow-xl">
       <button class="h-full focus:outline-none" @click="endCall">
