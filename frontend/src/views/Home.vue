@@ -2,7 +2,7 @@
   <div class="flex h-full">
     <div class="container m-auto">
       <Logo class="m-auto" full />
-      <h1 class="text-white font-light text-4xl pt-10">Collaborative 1 on 1 video calls for everyone</h1>
+      <h1 class="text-white font-light text-4xl pt-10">Pair, speed, and collaborative programming at your fingertips</h1>
       <button
         class="
           mt-20
