@@ -3,7 +3,7 @@ import Peer from 'peerjs'
 export const generatePeer = () => {
   let peer = new Peer({
     host: process.env.VUE_APP_PEER_SERVER_URL || "localhost",
-    port: 4040,
+    port: process.env.PORT || 4040,
     path: '/peer'
   })
 
