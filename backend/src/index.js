@@ -10,7 +10,7 @@ const main = async () => {
 
     app.enable('trust proxy');
     app.use(cors({
-      origin: "https://www.letsbabble.tech"
+      origin: "*"
     }));
     app.use(express.json());
 
