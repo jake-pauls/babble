@@ -1,6 +1,6 @@
 # Babble
 ![image of babble landing page]() <br />
-[Babble](https://babble-lilac.vercel.app/) is a video chat web app with Zoom integration and synchronous text workspace support.
+[Babble](https://www.letsbabble.tech/) is a video chat web app with Zoom integration and synchronous text workspace support.
 
 ## Table of Contents 🗺️
 * [Description](#description)
@@ -12,10 +12,10 @@
 * [License](#license)
 
 ## Description ✏️
-[Babble](https://babble-lilac.vercel.app/) provides live video chat and text field services. It enables people from around the world to work together. Users can create rooms with passwords, invite people to their rooms, live video chat and type in a shared text field.
+[Babble](https://www.letsbabble.tech/) provides live video chat and text field services. It enables people from around the world to work together. Users can create rooms with passwords, invite people to their rooms, live video chat and type in a shared text field.
 
 ## Demo 💾
-Live demo available here: https://babble-lilac.vercel.app/
+Live demo available here: https://www.letsbabble.tech/
 
 ## Site 🖥️
 
@@ -31,7 +31,7 @@ Live demo available here: https://babble-lilac.vercel.app/
 * [Firepad](https://firepad.io/)
 
 ## Usage 💡
-* Open [Babble](https://babble-lilac.vercel.app/).
+* Open [Babble](https://www.letsbabble.tech/).
 * Create a new room and/or join a room.
 * Chat and type!
 
