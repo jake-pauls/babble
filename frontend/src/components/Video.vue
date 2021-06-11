@@ -1,14 +1,22 @@
 <template>
-    <div>
-        <video width="300" height="300" ref="video" autoplay="autoplay"></video>
-    </div>
+  <video ref="video" autoplay="autoplay" />
 </template>
 
 <script>
-export default {
-  props: ["stream"],
-  updated() {
-      this.$refs.video.srcObject = this.stream;
-  },
-};
+  export default {
+    name: 'Video',
+    props: {
+      stream: {
+        type: Object
+      }
+    },
+    mounted() {
+      this.$refs.video.addEventListener('loadeddata', () => {
+        this.$emit('loadeddata')
+      })
+    },
+    updated() {
+      this.$refs.video.srcObject = this.stream
+    }
+  }
 </script>
