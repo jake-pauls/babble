@@ -31,7 +31,7 @@ const main = async () => {
 
     app.use("/", peerServer);
 
-    const io = new Server(httpServer, {
+    const io = new Server(server, {
       serveClient: false,
       cors: {
         origin: "https://www.letsbabble.tech"
