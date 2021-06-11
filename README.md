@@ -6,9 +6,9 @@
 
 ![backendCI](https://github.com/jake-pauls/babble/actions/workflows/backend-deploy.yml/badge.svg)
 ![jestTests](https://github.com/jake-pauls/babble/actions/workflows/vue-tests.yml/badge.svg)
-![license](https://img.shields.io/github/license/jake-pauls/babble?color=light-green)
 
 ![Vercel](https://therealsujitk-vercel-badge.vercel.app/?app=babble-lilac)
+![license](https://img.shields.io/github/license/jake-pauls/babble?color=light-green)
 
 [Babble](https://www.letsbabble.tech/) is a web application that enables pair programming for everyone by providing live video chat and built-in synchronous text workspace support.
 
