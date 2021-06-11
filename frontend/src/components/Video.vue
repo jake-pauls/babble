@@ -1,14 +1,13 @@
 <template>
-  <video ref="video" autoplay="autoplay" />
+  <video ref="video" autoplay="autoplay" :muted="muted" />
 </template>
 
 <script>
   export default {
     name: 'Video',
     props: {
-      stream: {
-        type: Object
-      }
+      stream: Object,
+      muted: Boolean
     },
     mounted() {
       this.$refs.video.addEventListener('loadeddata', () => {
