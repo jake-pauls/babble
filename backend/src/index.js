@@ -9,7 +9,9 @@ const main = async () => {
     const httpServer = createServer(app);
 
     app.enable('trust proxy');
-    app.use(cors());
+    app.use(cors({
+        origin: "https://www.letsbabble.tech"    
+    }));
     app.use(express.json());
 
     const PORT = process.env.PORT || 4040;
